@@ -1,11 +1,11 @@
-
 const quizData = [
     { question: "เราเจอกันครั้งแรกที่ไหน?", answer: "โรงเรียน" },
     {
-        question: "วันที่เราเริ่มคบกัน (ปี-เดือน-วัน)?",
-        answer: "25/06/2020",
+        question: "วันที่เราเริ่มคบกัน(ปี/เดือน/วัน)?",
+        answer: "25/05/2020",
     },
-    { question: "อาหารจานโปรดของแฟนคืออะไร?", answer: "ก๊วยเตี๋ยวเรือ" },
+    { question: "เราไปกินอะไรด้วยกันครั้งแรก?", answer: "เชสเตอร์" },
+    { question: "เราไปเที่ยวต่างจังหวัดที่ไหนด้วยกันครั้งแรก?", answer: "เกาะล้าน" },
 ];
 
 let current = 0;
@@ -46,7 +46,7 @@ function checkAnswer() {
     if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
         // ตอบถูก
         document.getElementById("result").innerHTML =
-            `<p class="success-msg">✅ ถูกต้อง! ไปข้อถัดไป~</p>`;
+            `<p class="success-msg">✅ ถูกแล้วน้า! ไปข้อถัดไป~</p>`;
 
         setTimeout(() => {
             current++;
@@ -60,7 +60,7 @@ function checkAnswer() {
         // ตอบผิด
         inputEl.classList.add("shake");
         document.getElementById("result").innerHTML =
-            `<p style="color: #d63384; font-weight: bold;">😅 หืม? ตอบผิดแล้วลองใหม่นะ!</p>`;
+            `<p style="color: #d63384; font-weight: bold;">😅 หึ? ตอบผิดอีแฟนลองใหม่เลยย!</p>`;
 
         // ลบ class shake ออกหลังจาก animation จบ เพื่อจะได้กดใหม่ได้อีก
         setTimeout(() => {
