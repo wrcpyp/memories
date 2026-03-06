@@ -25,7 +25,6 @@ body {
   position: relative;
 }
 
-/* สร้างก้อนหัวใจลอยตัวอยู่ด้านหลัง */
 .floating-hearts {
   position: absolute;
   width: 100%;
@@ -57,10 +56,9 @@ body {
   }
 }
 
-/* Container หลัก */
 .container {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px); /* เอฟเฟกต์กระจกเบลอ */
+  backdrop-filter: blur(10px);
   padding: 40px 50px;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
@@ -87,7 +85,6 @@ p.subtitle {
   font-size: 1.1rem;
 }
 
-/* ส่วนคำถาม */
 #question {
   font-size: 1.4rem;
   font-weight: 400;
@@ -128,9 +125,7 @@ button {
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
@@ -142,7 +137,6 @@ button:active {
   transform: translateY(0);
 }
 
-/* Feedback Effects */
 .shake {
   animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   border-color: #ff0033 !important;
@@ -150,23 +144,10 @@ button:active {
 }
 
 @keyframes shake {
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
 }
 
 #result {
@@ -182,17 +163,10 @@ button:active {
 }
 
 @keyframes popIn {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-/* Final Screen */
 #final-screen {
   display: none;
   animation: fadeIn 1s ease;
@@ -209,17 +183,10 @@ button:active {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Confetti */
 .confetti {
   position: absolute;
   width: 10px;
@@ -229,12 +196,66 @@ button:active {
 }
 
 @keyframes confettiFall {
-  0% {
-    transform: translateY(-100vh) rotate(0deg);
-    opacity: 1;
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  body {
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: 20px 0;
   }
-  100% {
-    transform: translateY(100vh) rotate(720deg);
-    opacity: 0;
+
+  .container {
+    padding: 30px 24px;
+    border-radius: 16px;
+    width: 92%;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  p.subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  #question {
+    font-size: 1rem;
+    min-height: 50px;
+  }
+
+  input[type="text"] {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .final-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .success-msg {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  #question {
+    font-size: 1rem;
   }
 }
